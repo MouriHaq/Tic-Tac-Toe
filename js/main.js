@@ -12,26 +12,22 @@
 /*----- app's state (variables) -----*/
     let board;
     let turn = 'X';
-// new code below
     let win;
 
 /*----- cached element references -----*/
     const squares = Array.from(document.querySelectorAll('#board div'));
 
-// new code below
-    const messages = document.querySelector('h2');
-
 /*----- event listeners -----*/
     document.getElementById('board').addEventListener('click', handleMove);
-//new code
+    const messages = document.querySelector('h2');
     document.getElementById('reset-button').addEventListener('click', init);
 /*----- functions -----*/
 
     function getWinner() {
         let winner = null;
         winningCombos.forEach((combo, index) => {
-        if (board[combo[0]] && board[combo[0]] === board[combo[1]] && board[combo[0]] === board[combo[2]]) {
-        winner = board[combo[0]];
+        if (board[combo[0]] && board[combo[0]] === board[combo[1]] && 
+            board[combo[0]] === board[combo[2]]) {winner = board[combo[0]];
         }
         });
         // new code below
@@ -50,16 +46,8 @@
         });
         // new code below
         board[idx] = turn;
-        // This is tidy
-        //turn = turn === 'X' ? 'O' : 'X';
+        turn = turn === 'X' ? 'O' : 'X';
         win = getWinner();
-        // In an if statement it would look like: 
-        // if (turn === 'X') {
-        // turn = 'O' 
-        // } else {
-        // turn = 'X' 
-        // };
-        // writing the ternary saved you from all that. 
         render();
         };
 
@@ -81,4 +69,5 @@
         // new code below
     messages.textContent = `It's ${turn}'s turn!`;
     }; 
+ init(); 
         
