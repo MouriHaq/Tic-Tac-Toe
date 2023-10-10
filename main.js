@@ -5,6 +5,9 @@ let turn = 'X';
 /*----- cached element references -----*/
 const squares = Array.from(document.querySelectorAll('#board div'));
 
+// new code below
+const messages = document.querySelector('h2');
+
 /*----- event listeners -----*/
     document.getElementById('board').addEventListener('click', handleTurn);
 
