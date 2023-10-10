@@ -6,16 +6,28 @@ let turn = 'X';
 const squares = Array.from(document.querySelectorAll('#board div'));
 /*----- event listeners -----*/
 document.getElementById('board').addEventListener('click', handleTurn);
+
 /*----- functions -----*/
-function init() {
-    board = [
-    '', '', '',
-    '', '', '',
-    '', '', ''
-    ];
-    // new code here
-    render();
-    };
+
+    function handleTurn(event) {
+        let idx = squares.findIndex(function(square) {
+        return square === event.target;
+        });
+        // new code below
+        board[idx] = turn;
+        // check your console logs to make sure it's working!
+        console.log(board);
+        };
+
+    function init() {
+        board = [
+        '', '', '',
+        '', '', '',
+        '', '', ''
+        ];
+        // new code here
+        render();
+        };
 
     function render() {
         board.forEach(function(mark, index) {
