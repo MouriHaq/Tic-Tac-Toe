@@ -4,8 +4,9 @@ let board;
 let turn = 'X';
 /*----- cached element references -----*/
 const squares = Array.from(document.querySelectorAll('#board div'));
+
 /*----- event listeners -----*/
-document.getElementById('board').addEventListener('click', handleTurn);
+    document.getElementById('board').addEventListener('click', handleTurn);
 
 /*----- functions -----*/
 
