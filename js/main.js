@@ -28,8 +28,21 @@ const winningCombos = [
 /*----- functions -----*/
 
     function getWinner() {
-        // just stub it up for now.
+        let winner = null;
+        winningCombos.forEach((combo, index) => {
+        if (board[combo[0]] && board[combo[0]] === board[combo[1]] && board[combo[0]] === board[combo[2]]) {
+        winner = board[combo[0]];
         }
+        });
+        // new code below
+        if (winner) {
+            return winner 
+          } else if (board.includes('')) {
+            return null // if there's an empty space, return null (no winner yet)
+          } else {
+            return 'T' // no winner and no empty spaces? That's a tie!
+          }
+      };
 
     function handleTurn(event) {
         let idx = squares.findIndex(function(square) {
