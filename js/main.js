@@ -27,10 +27,6 @@ const winningCombos = [
 
 /*----- functions -----*/
 
-    function getWinner() {
-        // just stub it up for now.
-        }
-
     function handleTurn(event) {
         let idx = squares.findIndex(function(square) {
         return square === event.target;
@@ -38,8 +34,7 @@ const winningCombos = [
         // new code below
         board[idx] = turn;
         // This is tidy
-        //turn = turn === 'X' ? 'O' : 'X';
-        win = getWinner();
+        turn = turn === 'X' ? 'O' : 'X';
         // In an if statement it would look like: 
         // if (turn === 'X') {
         // turn = 'O' 
