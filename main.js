@@ -46,4 +46,7 @@ const messages = document.querySelector('h2');
         //this sets the text content of the square of the same position to the mark on the board. 
         squares[index].textContent = mark;
         });
-        };
+        // new code below
+    messages.textContent = `It's ${turn}'s turn!`;
+    }; 
+        
