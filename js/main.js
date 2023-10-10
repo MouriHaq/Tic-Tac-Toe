@@ -1,15 +1,14 @@
 /*----- constants -----*/
-    /*----- constants -----*/
-const winningCombos = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6], 
-    [1, 4, 7],
-    [2, 5, 8],
-    [0, 4, 8],
-    [2, 4, 6]
-    ];
+    const winningCombos = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6], 
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6]
+        ];
 /*----- app's state (variables) -----*/
     let board;
     let turn = 'X';
@@ -23,8 +22,9 @@ const winningCombos = [
     const messages = document.querySelector('h2');
 
 /*----- event listeners -----*/
-    document.getElementById('board').addEventListener('click', handleTurn);
-
+    document.getElementById('board').addEventListener('click', handleMove);
+//new code
+    document.getElementById('reset-button').addEventListener('click', init);
 /*----- functions -----*/
 
     function getWinner() {
