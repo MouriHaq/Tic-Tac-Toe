@@ -55,16 +55,6 @@ const winningCombos = [
                             return <div key={index} class="square">{data}</div>
                         })    
                     }
-                {/* <div class="square"></div>
-                <div class="square"></div>
-                <div class="square"></div>
-                <div class="square"></div>
-                <div class="square"></div>
-                <div class="square"></div>
-                <div class="square"></div>
-                <div class="square"></div>
-                <div class="square"></div> */}
-                </div>
                 {/* <!-- A reset button because users are going to want to play round after round of your glorious game without ever refreshing the browser! -->
                 <button id="reset-button">reset</button>*/}
                 <button id="reset-button">reset</button>
