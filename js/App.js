@@ -26,10 +26,6 @@ const winningCombos = [
         });
 
     function handleTurn(event) {
-        // //alert('clicked')
-        // let idx = squares.findIndex(function(square) {
-        // return square === event.target;
-        // });     
         console.log(event.target, event.target.id)
         let idx = event.target.id 
         if (gameOver === false) { 
