@@ -21,26 +21,28 @@
     document.getElementById('board').addEventListener('click', handleMove);
     const messages = document.querySelector('h2');
     document.getElementById('reset-button').addEventListener('click', init);
-/*----- functions -----*/
+
+    /*----- functions -----*/
 
     function getWinner() {
         let winner = null;
-        winningCombos.forEach((combo, index) => {
+        winningCombos.forEach((combo, index) {
         if (board[combo[0]] && board[combo[0]] === board[combo[1]] && 
-            board[combo[0]] === board[combo[2]]) {winner = board[combo[0]];
-        }
+            board[combo[0]] === board[combo[2]]) winner = board[combo[0]];
         });
-        // new code below
-        if (winner) {
-            return winner 
-          } else if (board.includes('')) {
-            return null // if there's an empty space, return null (no winner yet)
-          } else {
-            return 'T' // no winner and no empty spaces? That's a tie!
-          }
-      };
+        return winner ? winner : board.includes('') ? null : 'T';
+    };    
+    //     // new code below
+    //     if (winner) {
+    //         return winner 
+    //       } else if (board.includes('')) {
+    //         return null // if there's an empty space, return null (no winner yet)
+    //       } else {
+    //         return 'T' // no winner and no empty spaces? That's a tie!
+    //       }
+    //   };
 
-    function handleTurn(event) {
+    function handleTurn() {
         let idx = squares.findIndex(function(square) {
         return square === event.target;
         });
@@ -67,7 +69,8 @@
         squares[index].textContent = mark;
         });
         // new code below
-    messages.textContent = `It's ${turn}'s turn!`;
+    messages.textContent = win ===  'T' ? `That's  a tie` : win ? `$ {win} wins the game!` 
+    :  `It's ${turn}'s turn!`;
     }; 
  init(); 
         
