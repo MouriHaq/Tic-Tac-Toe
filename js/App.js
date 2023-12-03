@@ -14,16 +14,21 @@ const winningCombos = [
     /*----- app's state (variables) -----*/
     
     const [board, setBoard] = React.useState(["", "","","","","","","",""])
-    let turn = 'X';
-    let win;
+    const [turn, setTurn] = React.useState('X')
+    const [win, setWin] = React.useState(null);
 
     function getWinner() {
         let winner = null;
-        winningCombos.forEach((combo, index) => {
-        if (board[combo[0]] && board[combo[0]] === board[combo[1]] && 
-            board[combo[0]] === board[combo[2]]) {winner = board[combo[0]];
+        winningCombos.forEach( function (combo, index) {
+        if (
+            board[combo[0]] && 
+            board[combo[0]] === board[combo[1]] && 
+            board[combo[0]] === board[combo[2]]
+            ) 
+            winner = board[combo[0]]
+        }}
+        return winner ? : board.includes('') ? null : 'T'
         }
-        });
 
     function handleTurn(event) {
         console.log(event.target, event.target.id)
@@ -32,17 +37,37 @@ const winningCombos = [
         let newBoard = [...board]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
         newBoard[idx] = turn
         setBoard(newBoard)
-        turn = turn === 'X' ? 'O' : 'X';
-        //win = getWinner();
+        let nextTurn = turn === 'X' ? 'O' : 'X'
+        setTurn(nextTurn)
+        let whoWon = getWinner();
+        setWin(whoWon)
         // render();
         }
-    }
 
+        function Message() {
+
+            let messages = win === 'T' 
+            ? `that's a tie` 
+            : win 
+            ? `${win} wins the game` 
+            : `it's ${turn}'s turn!`;
+            
+            return <h2>{message}</h2>
+
+         }
+            if(win){
+                return ...
+            }else {
+                return (
+                    <h2>It's {turn}'s' turn!</h2>
+                )
+            }
+
+        }
 
     return (
         <div>
             <h1>Tic-React-Toe</h1>
-            <h2>It's X's turn!</h2>
 
                 <div class="flex-container flex-column">
                 <div 
@@ -59,7 +84,6 @@ const winningCombos = [
                 <button id="reset-button">reset</button>*/}
                 <button id="reset-button">reset</button>
         </div> 
-
 
     )
 }
